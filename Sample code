@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+
+        int[] inventory = new int[m];
+        int[] order = new int[n];
+
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int i = 0; i < m; i++) {
+            inventory[i] = sc.nextInt();
+            set.add(inventory[i]);
+        }
+
+        boolean isSubset = true;
+
+        for (int i = 0; i < n; i++) {
+            order[i] = sc.nextInt();
+
+            if (!set.contains(order[i])) {
+                isSubset = false;
+            }
+        }
+
+        if (isSubset) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
